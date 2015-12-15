@@ -6,3 +6,17 @@
 <% else %>
   <%= link_to "login", login_path %>
 <% end %>
+
+<div class="row">
+  <div class="col-md-3">
+    <%= render '/user/left_column' %>
+  </div>
+
+  <div class="col-md-6">
+    <%= render '/user/center_column' %>
+  </div>
+
+  <div class="col-md-3">
+    <%= render '/user/right_column' %>
+  </div>
+</div>
