@@ -1,6 +1,21 @@
 <div class="well">
-  Right Column(something will go here)
-  Followers?
-  My Recent Tweets?
-  My Recent Mentions?
+  <h6 class="text-center">My Recent Tweets</h6>
+  <table class="table borderless table-hover">
+    <col width="60%">
+    <col width="40%">
+    <thead>
+      <tr>
+        <th><!--placeholder for tweet --></th>
+        <th><!--placeholder for date --></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @user_data.user_timeline[0..5].each do |tweet| %>
+        <tr>
+          <td><p class="mini"><%= tweet.text %><p></td>
+          <td><p class="mini"><%= time_ago_in_words(tweet.created_at) %></p></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 </div>
