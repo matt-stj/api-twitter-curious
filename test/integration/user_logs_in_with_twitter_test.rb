@@ -12,9 +12,9 @@ require "test_helper"
       visit "/"
       assert_equal 200, page.status_code
       click_link "Login with Twitter »"
-      # assert_equal "/", current_path
-      # assert page.has_content?("Horace")
-      # assert page.has_link?("logout")
+      assert_equal "/", current_path
+      assert page.has_content?("Horace")
+      assert page.has_link?("logout")
     end
 
     def stub_omniauth

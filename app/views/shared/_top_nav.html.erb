@@ -5,9 +5,7 @@
      </a>
         <ul class='nav navbar-nav active dropdown pull-right dropdown-toggle' data-toggle="dropdown">
           <% if current_user %>
-            <li><%= link_to "Logout", logout_path %></li>
-          <% else %>
-            <li><%= link_to "Login", login_path %></li>
+            <li><%= link_to "Logout", logout_path, method: :delete %></li>
           <% end %>
         </div>
         </ul>

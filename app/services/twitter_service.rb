@@ -1,7 +1,7 @@
 class TwitterService
   attr_reader :client
 
-  def initialize(user)
+  def initialize(user = User.first)
     #this will get triggered in the controller
     #and it will send back some JSON bullshit that we want to turn into an object
     #so make a separate class to turn the json into an object and then hand it back to the controller
@@ -12,10 +12,5 @@ class TwitterService
       config.access_token_secret = user.oauth_token_secret
     end
   end
-
-  # Wrap their shit with our shit so we're calling methods 
-  # def update(message)
-  #   @celint.update(message)
-  # end
 
 end
