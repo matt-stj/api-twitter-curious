@@ -8,10 +8,10 @@ class TweetController < ApplicationController
     redirect_to users_path
   end
 
-  private
-
-   def twitter_service
-     TwitterService.new(current_user).client
-   end
+  # private
+  #
+  #  def twitter_service
+  #    TwitterService.new(current_user).client
+  #  end
 
 end

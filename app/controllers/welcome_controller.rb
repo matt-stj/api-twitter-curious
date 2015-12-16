@@ -10,11 +10,4 @@ class WelcomeController < ApplicationController
     twitter_service.update(params[:message])
   end
 
-private
-
- def twitter_service
-   TwitterService.new(current_user).client
- end
-
-
 end

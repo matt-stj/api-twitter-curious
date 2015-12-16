@@ -1,0 +1,32 @@
+<div class="container">
+
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+        <div class="well">
+          <h6 class="text-center">My Favorited Tweets</h6>
+          <table class="table borderless table-hover">
+            <col width="10%">
+            <col width="90%">
+            <thead>
+              <tr>
+                <th><!--placeholder for image --></th>
+                <th><!--placeholder for text --></th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @favorites[0..2].each do |favorite| %>
+                <tr>
+                  <td><img src="<%= favorite.user.profile_image_url%>" alt="favoriteer" class="img-rounded" /></td>
+                  <td><p class="favorite-text"><%= favorite.text %></p></td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+    </div>
+    <div class="col-md-3">
+      <div class="well">
+          <%= link_to "Back", users_path, class: "btn btn-primary <<" %>
+      </div>
+    </div>
+</div>

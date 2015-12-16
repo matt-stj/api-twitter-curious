@@ -1,19 +1,7 @@
-<% if current_user %>
+<div class="jumbotron">
   <div class="container">
-    <div class="row">
-      <div class="col-md-3"><%= render '/shared_user/left_column' %></div>
-
-      <div class="col-md-6"><%= render '/shared_user/center_column' %></div>
-
-      <div class="col-md-3"><%= render '/shared_user/right_column' %></div>
-    </div>
+    <h1>Are you Twitter-curious?</h1>
+    <p>Sign in with your Twitter details below and see what's going on in your Twittersphere!</p>
+    <p><%= link_to "Login with Twitter »", login_path, class: "btn btn-primary btn-lg", role: "button" %></p>
   </div>
-<% else %>
-  <div class="jumbotron">
-    <div class="container">
-      <h1>Are you Twitter-curious?</h1>
-      <p>Sign in with your Twitter details below and see what's going on in your Twittersphere!</p>
-      <p><%= link_to "Login with Twitter »", login_path, class: "btn btn-primary btn-lg", role: "button" %></p>
-    </div>
-  </div>
-<% end %>
+</div>
