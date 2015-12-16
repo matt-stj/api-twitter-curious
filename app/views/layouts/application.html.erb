@@ -9,14 +9,12 @@
 </head>
 <body>
 <%= render '/shared/top_nav' %>
-
-<% if current_page?('/') %>
-  <%= yield %>
-<% else %>
-  <div class="container">
-    <%= yield %>
-  </div>
-<% end %>
+<div class="container">
+    <% flash.each do |type, msg| %>
+      <%= content_tag :div, sanitize(msg) %>
+    <% end %>
+</div>
+<%= yield %>
 
 </body>
 </html>
