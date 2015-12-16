@@ -1,6 +1,6 @@
 <div class="well">
   <div class="text-center">
-    <%= link_to "Tweet", tweet_path %>
+    <%= link_to "Tweet", new_tweet_path %>
   </div>
   <h6 class="text-center">My Recent Tweets</h6>
   <table class="table borderless table-hover">
@@ -13,7 +13,7 @@
       </tr>
     </thead>
     <tbody>
-      <% @user_data.user_timeline[0..5].each do |tweet| %>
+      <% @user_data.user_timeline[0..2].each do |tweet| %>
         <tr>
           <td><p class="mini"><%= tweet.text %><p></td>
           <td><p class="mini"><%= time_ago_in_words(tweet.created_at) %></p></td>

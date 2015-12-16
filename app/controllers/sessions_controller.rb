@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
     else
       flash[:alert] = "There was an error."
     end
-    redirect_to root_path
+    redirect_to users_path
   end
 
   def destroy
