@@ -1,6 +1,22 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+body {
+  background-color: #F5F8FA;
+}
+
+.well {
+  background-color: #fff;
+}
+
+.navbar-default {
+  background-color: #fff;
+}
+
+.nav-img {
+  height: 25px;
+}
+
 .borderless td, .borderless th {
     border: none;
 }
@@ -13,4 +29,9 @@
 .tweet-text {
   font-weight: lighter;
   font-size: 16px;
+}
+
+.mini {
+  font-size: 12px;
+  font-weight: lighter;
 }
