@@ -9,10 +9,4 @@ class FavoritesController < ApplicationController
     redirect_to favorites_path
   end
 
-  # private
-  #
-  #   def twitter_service
-  #     TwitterService.new(current_user).client
-  #   end
-
 end

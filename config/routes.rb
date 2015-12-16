@@ -6,6 +6,6 @@ Rails.application.routes.draw do
 
   resources :users, only: [:index]
 
-  resources :tweet, only: [:new, :create]
+  resources :tweets, only: [:new, :create]
   resources :favorites, only: [:create, :index]
 end
