@@ -10,7 +10,7 @@
       </tr>
     </thead>
     <tbody>
-      <% @user_data.user_timeline[0..2].each do |tweet| %>
+      <% @user_data.user_timeline[0..3].each do |tweet| %>
         <tr>
           <td><p class="mini"><%= tweet.text %><p></td>
           <td><p class="mini-time"><%= time_ago_in_words(tweet.created_at) %> ago</p></td>

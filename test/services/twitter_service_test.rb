@@ -1,19 +1,11 @@
 require './test/test_helper'
 
 class TwitterServiceTest < ActiveSupport::TestCase
-  attr_reader :service
-
-  def create_user
-    @user = User.new(id: 1,
-    name: "MattsApicuriousacct",
-    screen_name: "MattsApicouri",
-    oauth_token: ENV["oauth_token"],
-    oauth_token_secret: ENV["oauth_token_secret"])
-  end
+  attr_reader :service, :user
 
   def setup
     create_user
-    @service = TwitterService.new(@user)
+    @service = TwitterService.new(user)
   end
 
   test '#followers' do
@@ -84,7 +76,7 @@ class TwitterServiceTest < ActiveSupport::TestCase
     VCR.use_cassette('twitter_service#tweet_favorited?') do
       tweet = service.home_timeline.first
 
-      assert_equal "", tweet.favorited
+      assert_equal false, tweet.favorited?
     end
   end
 

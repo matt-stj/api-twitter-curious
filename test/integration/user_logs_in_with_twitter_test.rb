@@ -9,7 +9,6 @@ require "test_helper"
     end
 
     test "logging in" do
-      skip
       visit "/"
       assert_equal 200, page.status_code
       click_link "Login with Twitter »"
