@@ -17,3 +17,6 @@
 
 #Ignore that nasty coverage folder
 /coverage
+
+#Ignore casettes
+/test/cassettes

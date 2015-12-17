@@ -23,4 +23,12 @@ class TwitterService
     client.user_timeline
   end
 
+  def home_timeline
+    client.home_timeline
+  end
+
+  def profile_image_url
+    client.user.profile_image_url
+  end
+
 end
