@@ -3,7 +3,7 @@
     <img class="img-rounded" src="<%= @user_data.user.profile_image_url %>" alt="profile" />
   </div>
   <h4><%= @user_data.user.name %><h4>
-  <p class="mini">@<%= @user_data.user.username %></p>
+  <p class="mini">@<%= @user_data.user.screen_name %></p>
 
     <table class="table borderless">
       <thead>
@@ -15,7 +15,7 @@
       </thead>
       <tbody>
         <tr>
-          <td><%= @user_data.home_timeline.count %></td>
+          <td> <%= link_to @user_data.home_timeline.count, tweets_path, class: "table-number-links" %></td>
           <td><%= @user_data.following.count %></td>
           <td><%= @user_data.followers.count %></td>
         </tr>

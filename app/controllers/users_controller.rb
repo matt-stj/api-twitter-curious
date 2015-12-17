@@ -7,9 +7,4 @@ class UsersController < ApplicationController
     #tried pagination and needed to break out tweets
   end
 
-  def create
-    twitter_service.update(params[:message])
-  end
-
-
 end

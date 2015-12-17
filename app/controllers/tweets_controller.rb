@@ -1,5 +1,9 @@
 class TweetsController < ApplicationController
 
+  def index
+    @tweets = twitter_service.user_timeline
+  end
+
   def new
   end
 
