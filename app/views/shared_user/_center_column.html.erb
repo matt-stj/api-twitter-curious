@@ -14,7 +14,7 @@
         <tr>
           <td><img src="<%= tweet.user.profile_image_url%>" alt="tweeter" class="img-rounded" /></td>
           <td>
-            <p class="tweet-text-handle">@<strong><%= tweet.user.username %></strong></p>
+            <p class="tweet-text-handle">@<strong><%= tweet.user.screen_name %></strong></p>
             <p class="tweet-text"><%= tweet.text %>
             <% if tweet.favorited? %>
               <%= link_to favorite_path(tweet.id), method: :delete, id: 'unfavorite' do %>
