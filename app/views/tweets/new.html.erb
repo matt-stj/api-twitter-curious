@@ -1,5 +1,13 @@
-<%= form_tag tweets_path, method: :post do %>
-  <%= label_tag "message" %>
-  <%= text_area_tag 'tweet[message]', nil, maxlength: 140 %>
-  <%= submit_tag "Submit" %>
-<% end %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+
+  <%= form_tag tweets_path, method: :post, class: "search-form" do %>
+    <%= label_tag "message" %>
+    <%= text_area_tag 'tweet[message]', nil, maxlength: 140, class: "form-control" %>
+    <br>
+    <%= submit_tag "Submit", class: "btn btn-primary" %>
+  <% end %>
+</div>
+</div>
+</div>

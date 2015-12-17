@@ -14,7 +14,7 @@
               </tr>
             </thead>
             <tbody>
-              <% @favorites[0..2].each do |tweet| %>
+              <% @favorites.each do |tweet| %>
                 <tr>
                   <td><img src="<%= tweet.user.profile_image_url%>" alt="favoriteer" class="img-rounded" /></td>
                   <td><p class="favorite-text"><%= tweet.text %> | <%= link_to favorite_path(tweet.id), method: :delete, id: 'unfavorite' do %>

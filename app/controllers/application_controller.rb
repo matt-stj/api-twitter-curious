@@ -1,8 +1,6 @@
 class ApplicationController < ActionController::Base
-  # Prevent CSRF attacks by raising an exception.
-  # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
-  before_filter :require_current_user
+  before_filter :require_user
   helper_method :current_user, :twitter_service
 
   def current_user
@@ -11,6 +9,10 @@ class ApplicationController < ActionController::Base
 
   def twitter_service
     TwitterService.new(current_user).client
+  end
+
+  def require_user
+    render file: 'public/404' unless current_user
   end
 
 end
