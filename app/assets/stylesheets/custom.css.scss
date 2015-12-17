@@ -33,6 +33,11 @@ body {
   font-size: 16px;
 }
 
+.tweet-text-handle {
+  font-size: 12px;
+  font-weight: 500;
+}
+
 .mini {
   font-size: 12px;
   font-weight: lighter;
@@ -44,9 +49,9 @@ body {
 }
 
 #favorite:hover {
-  color: #ccc;
+  color: black;
 }
 
 #unfavorite:hover {
-  color: #337ab7;
+  color: #ccc;
 }

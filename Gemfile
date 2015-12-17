@@ -17,6 +17,7 @@ gem 'twitter'
 group :development, :test do
   gem 'byebug'
   gem 'capybara'
+  gem 'launchy'
 end
 
 group :development do
