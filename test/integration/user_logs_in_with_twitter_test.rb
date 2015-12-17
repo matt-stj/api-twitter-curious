@@ -14,10 +14,10 @@ require "test_helper"
       click_link "Login with Twitter »"
       assert_equal "/users", current_path
       assert page.has_content?("MattsApicouri")
-      assert page.has_link?("logout")
+      assert page.has_link?("Logout")
 
-      click_link("logout")
-      assert_equal "/" current_path
+      click_link("Logout")
+      assert_equal "/", current_path
       assert page.has_content?("Thanks for visiting. You've been logged out.")
     end
 
