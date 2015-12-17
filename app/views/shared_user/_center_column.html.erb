@@ -12,7 +12,9 @@
     <tbody>
       <% @user_data.home_timeline[0..1].each do |tweet| %>
         <tr>
-          <td><img src="<%= tweet.user.profile_image_url%>" alt="tweeter" class="img-rounded" /></td>
+          <td>
+            <img src="<%= tweet.user.profile_image_url%>" alt="tweeter" class="img-rounded" />
+          </td>
           <td>
             <p class="tweet-text-handle">@<strong><%= tweet.user.screen_name %></strong></p>
             <p class="tweet-text"><%= tweet.text %>
@@ -27,6 +29,9 @@
             <%= link_to tweet_path(tweet.id) do %>
                <i class="glyphicon glyphicon-option-horizontal"></i>
                <% end %>
+            <%= link_to follow_index_path(tweet.user.screen_name), method: :post do %>
+            <i class="glyphicon glyphicon-remove"></i>
+              <% end %>
             <% end %></p></td>
         </tr>
       <% end %>
