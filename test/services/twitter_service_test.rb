@@ -46,17 +46,6 @@ class TwitterServiceTest < ActiveSupport::TestCase
     end
   end
 
-  test '#profile_image_url' do
-    VCR.use_cassette('twitter_service#user_tweets') do
-      binding.pry
-      user_profile_image_url = service.profile_image_url
-
-      assert_equal 11, user_profile_image_url
-    end
-  end
-
-
-
   test '#home_timeline' do
     VCR.use_cassette('twitter_service#home_timeline') do
       home_timeline = service.home_timeline

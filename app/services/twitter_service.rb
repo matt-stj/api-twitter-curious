@@ -28,7 +28,7 @@ class TwitterService
   end
 
   def profile_image_url
-    client.user.profile_image_url
+
   end
 
 end
