@@ -9,4 +9,9 @@ class FavoritesController < ApplicationController
     redirect_to favorites_path
   end
 
+  def destroy
+    twitter_service.unfavorite(params[:id])
+    redirect_to favorites_path
+  end
+
 end

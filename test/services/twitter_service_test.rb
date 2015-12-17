@@ -1,7 +1,7 @@
 require './test/test_helper'
 
 class TwitterServiceTest < ActiveSupport::TestCase
-  attr_reader :service, :user
+  attr_reader :service
 
   def create_user
     @user = User.new(id: 1,
@@ -13,7 +13,7 @@ class TwitterServiceTest < ActiveSupport::TestCase
 
   def setup
     create_user
-    @service ||= TwitterService.new(user)
+    @service = TwitterService.new(@user)
   end
 
   test '#followers' do
@@ -56,5 +56,36 @@ class TwitterServiceTest < ActiveSupport::TestCase
     end
   end
 
+  test '#profile_image_url' do
+    VCR.use_cassette('twitter_service#profile_image_url') do
+      profile_image_url = service.profile_image_url
+
+      assert_equal "http://abs.twimg.com/sticky/default_profile_images/default_profile_1_normal.png", profile_image_url
+    end
+  end
+
+  test '#user_name' do
+    VCR.use_cassette('twitter_service#user_name') do
+      user_name = service.user_name
+
+      assert_equal "MattsApicuriousacct", user_name
+    end
+  end
+
+  test '#user_handle' do
+    VCR.use_cassette('twitter_service#owner_name') do
+      user_handle = service.user_handle
+
+      assert_equal "MattsApicouri", user_handle
+    end
+  end
+
+  test '#tweet_favorited?' do
+    VCR.use_cassette('twitter_service#tweet_favorited?') do
+      tweet = service.home_timeline.first
+
+      assert_equal "", tweet.favorited
+    end
+  end
 
 end

@@ -24,6 +24,8 @@ body {
 .table th, td {
   font-weight: lighter;
   font-size: 16px;
+  table-layout: fixed;
+  word-wrap: break-word;
 }
 
 .tweet-text {

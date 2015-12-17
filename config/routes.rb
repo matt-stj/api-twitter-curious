@@ -7,5 +7,5 @@ Rails.application.routes.draw do
   resources :users, only: [:index]
 
   resources :tweets, only: [:new, :create]
-  resources :favorites, only: [:create, :index]
+  resources :favorites, only: [:create, :index, :destroy]
 end

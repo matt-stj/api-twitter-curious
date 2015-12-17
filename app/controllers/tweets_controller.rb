@@ -4,8 +4,11 @@ class TweetsController < ApplicationController
   end
 
   def create
-    twitter_service.update(params[:tweet][:message])
-    redirect_to users_path
+    if twitter_service.update(params[:tweet][:message])
+      redirect_to users_path
+    else
+      flash[:alert] = f.error_messages
+    end
   end
 
 end
