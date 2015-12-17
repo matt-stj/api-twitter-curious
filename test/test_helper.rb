@@ -8,6 +8,7 @@ require "capybara/rails"
 require 'minitest/pride'
 require 'webmock'
 require 'vcr'
+require 'mocha/mini_test'
 
 class ActiveSupport::TestCase
   fixtures :all

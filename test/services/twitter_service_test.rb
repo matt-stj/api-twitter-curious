@@ -81,11 +81,18 @@ class TwitterServiceTest < ActiveSupport::TestCase
   end
 
   test '#user_posts_tweet' do
-    skip
-    service.stubs(:update).returns(Twitter::Tweet.new(id: 123))
+    service.stubs(:update).returns(Twitter::Tweet.new(id: 123456))
     VCR.use_cassette('twitter_service#update') do
 
       assert_equal Twitter::Tweet, service.update("Tweet Test").class
+    end
+  end
+
+  test '#user_favorites_tweet' do
+    service.stubs(:favorite).returns(Twitter::Tweet.new(id: 123456))
+    VCR.use_cassette('twitter_service#favorite') do
+
+      assert_equal Twitter::Tweet, service.favorite("Tweet Test").class
     end
   end
 

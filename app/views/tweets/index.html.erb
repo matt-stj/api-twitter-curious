@@ -1,0 +1,33 @@
+<div class="container">
+
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+        <div class="well">
+          <h6 class="text-center">My Tweets</h6>
+          <table class="table borderless table-hover">
+            <col width="10%">
+            <col width="90%">
+            <thead>
+              <tr>
+                <th><!--placeholder for image --></th>
+                <th><!--placeholder for text --></th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @tweets.each do |tweet| %>
+                <tr>
+                  <td><img src="<%= tweet.user.profile_image_url%>" alt="favoriteer" class="img-rounded" /></td>
+                  <td><p class="favorite-text"><%= tweet.text %></p></td>
+
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+    </div>
+    <div class="col-md-3">
+      <div class="well">
+          <%= link_to "Back", users_path, class: "btn btn-primary <<" %>
+      </div>
+    </div>
+</div>

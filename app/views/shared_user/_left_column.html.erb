@@ -15,7 +15,7 @@
       </thead>
       <tbody>
         <tr>
-          <td><%= @user_data.home_timeline.count %></td>
+          <td> <%= link_to @user_data.home_timeline.count, tweets_path, class: "table-number-links" %></td>
           <td><%= @user_data.following.count %></td>
           <td><%= @user_data.followers.count %></td>
         </tr>
