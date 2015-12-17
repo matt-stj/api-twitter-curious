@@ -1,7 +1,7 @@
 class TwitterService
   attr_reader :client
 
-  def initialize(user = User.first)
+  def initialize(user)
 
     @client = Twitter::REST::Client.new do |config|
       config.consumer_key        = ENV['twitter_consumer_api_key']
@@ -17,6 +17,10 @@ class TwitterService
 
   def following
     client.following
+  end
+
+  def user_tweets
+    client.user_timeline
   end
 
 end

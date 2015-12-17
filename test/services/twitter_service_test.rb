@@ -37,4 +37,14 @@ class TwitterServiceTest < ActiveSupport::TestCase
     end
   end
 
+  test '#user_tweets' do
+    VCR.use_cassette('twitter_service#user_tweets') do
+      user_tweets = service.user_tweets
+      first_user_tweet  = user_tweets.first
+
+      assert_equal 11,      user_tweets.count
+      assert_equal "Testing another way of posting",  first_user_tweet.text
+    end
+  end
+
 end
