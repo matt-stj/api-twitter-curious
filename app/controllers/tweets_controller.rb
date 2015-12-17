@@ -4,6 +4,10 @@ class TweetsController < ApplicationController
     @tweets = twitter_service.user_timeline
   end
 
+  def show
+    @tweet = twitter_service.status(params[:id])
+  end
+
   def new
   end
 

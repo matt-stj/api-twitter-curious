@@ -3,8 +3,6 @@ class UsersController < ApplicationController
 
   def index
     @user_data ||= twitter_service
-    @tweets = twitter_service.home_timeline
-    #tried pagination and needed to break out tweets
   end
 
 end
