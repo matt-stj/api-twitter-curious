@@ -10,10 +10,21 @@
       </tr>
     </thead>
     <tbody>
-      <% @tweets[0..2].each do |tweet| %>
+      <% @tweets[0..10].each do |tweet| %>
         <tr>
           <td><img src="<%= tweet.user.profile_image_url%>" alt="tweeter" class="img-rounded" /></td>
-          <td><p class="tweet-text"><%= tweet.text %> | <%= link_to "Favorite", favorites_path(tweet_id: tweet.id), class: "btn", method: :post %> </p></td>
+          <td>
+            <p class="tweet-text-handle">@<strong><%= tweet.user.username %></strong></p>
+            <p class="tweet-text"><%= tweet.text %>
+            <% if tweet.favorited? %>
+              <%= link_to favorite_path(tweet.id), method: :delete, id: 'unfavorite' do %>
+                <i class="glyphicon glyphicon-star"></i>
+              <% end %></p></td>
+            <% else %>
+               <%= link_to favorites_path(tweet_id: tweet.id), method: :post, id: 'favorite' do %>
+                  <i class="glyphicon glyphicon-star-empty"></i>
+               <% end %></p></td>
+            <% end %>
         </tr>
       <% end %>
     </tbody>

@@ -24,11 +24,18 @@ body {
 .table th, td {
   font-weight: lighter;
   font-size: 16px;
+  table-layout: fixed;
+  word-wrap: break-word;
 }
 
 .tweet-text {
   font-weight: lighter;
   font-size: 16px;
+}
+
+.tweet-text-handle {
+  font-size: 12px;
+  font-weight: 500;
 }
 
 .mini {
@@ -39,4 +46,12 @@ body {
 .mini-time {
   font-size: 10px;
   font-weight: lighter;
+}
+
+#favorite:hover {
+  color: black;
+}
+
+#unfavorite:hover {
+  color: #ccc;
 }

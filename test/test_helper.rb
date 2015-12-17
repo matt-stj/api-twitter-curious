@@ -1,10 +1,41 @@
+require 'simplecov'
+SimpleCov.start 'rails'
+
 ENV['RAILS_ENV'] ||= 'test'
 require File.expand_path('../../config/environment', __FILE__)
 require 'rails/test_help'
+require "capybara/rails"
+require 'minitest/pride'
+require 'webmock'
+require 'vcr'
 
 class ActiveSupport::TestCase
-  # Setup all fixtures in test/fixtures/*.yml for all tests in alphabetical order.
   fixtures :all
 
-  # Add more helper methods to be used by all tests here...
+  VCR.configure do |config|
+    config.cassette_library_dir = "test/cassettes"
+    config.hook_into :webmock
+  end
+
+  def setup
+    create_user
+  end
+
+  def create_user
+    @user = User.new(id: 1,
+    name: "MattsApicuriousacct",
+    screen_name: "MattsApicouri",
+    oauth_token: ENV["oauth_token"],
+    oauth_token_secret: ENV["oauth_token_secret"])
+  end
+
+end
+
+class ActionDispatch::IntegrationTest
+  include Capybara::DSL
+
+  def teardown
+    reset_session!
+    OmniAuth.config.mock_auth[:twitter] = nil
+  end
 end

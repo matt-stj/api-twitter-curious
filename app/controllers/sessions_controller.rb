@@ -1,4 +1,5 @@
 class SessionsController < ApplicationController
+  skip_before_filter :require_user
 
   def create
     if user = User.from_omniauth(request.env["omniauth.auth"])

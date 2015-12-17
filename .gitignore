@@ -14,3 +14,9 @@
 
 # Ignore application configuration
 /config/application.yml
+
+#Ignore that nasty coverage folder
+/coverage
+
+#Ignore casettes
+/test/cassettes
