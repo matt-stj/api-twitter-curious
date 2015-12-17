@@ -1,0 +1,40 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+        <div class="well">
+          <table class="table borderless table-hover">
+            <col width="10%">
+            <col width="90%">
+            <thead>
+              <tr>
+                <th><!--placeholder for image --></th>
+                <th><!--placeholder for text --></th>
+              </tr>
+            </thead>
+            <tbody>
+                <tr>
+                  <td><img src="<%= @tweet.user.profile_image_url%>" alt="tweeter" class="img-rounded" /></td>
+                  <td>
+                    <p class="tweet-text-handle">@<strong><%= @tweet.user.screen_name %></strong></p>
+                    <p class="tweet-text"><%= @tweet.text %>
+                    <% if @tweet.favorited? %>
+                      <%= link_to favorite_path(@tweet.id), method: :delete, id: 'unfavorite' do %>
+                        <i class="glyphicon glyphicon-star"></i>
+                      <% end %></p></td>
+                    <% else %>
+                       <%= link_to favorites_path(tweet_id: @tweet.id), method: :post, id: 'favorite' do %>
+                          <i class="glyphicon glyphicon-star-empty"></i>
+                       <% end %></p></td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="well">
+          <%= link_to "Back", users_path, class: "btn btn-primary <<" %>
+        </div>
+      </div>
+    </div>
+  </div>
