@@ -10,7 +10,7 @@
       </tr>
     </thead>
     <tbody>
-      <% @user_data.home_timeline[0..1].each do |tweet| %>
+      <% @user_data.home_timeline[0..10].each do |tweet| %>
         <tr>
           <td>
             <img src="<%= tweet.user.profile_image_url%>" alt="tweeter" class="img-rounded" />
