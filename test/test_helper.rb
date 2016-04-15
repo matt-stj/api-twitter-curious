@@ -40,4 +40,5 @@ class ActionDispatch::IntegrationTest
     reset_session!
     OmniAuth.config.mock_auth[:twitter] = nil
   end
+  
 end

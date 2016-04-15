@@ -1,7 +1,16 @@
 class TweetsController < ApplicationController
 
   def index
-    @tweets = twitter_service.user_timeline
+    @tweets = Tweet.new(user).timeline
+
+    Tweet.timeline
+
+    # Why's this within the index method?
+
+    def timeline
+      TwitterService.new(current_user).user_timeline
+    end
+
   end
 
   def show

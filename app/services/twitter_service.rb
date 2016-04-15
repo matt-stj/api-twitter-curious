@@ -34,16 +34,38 @@ class TwitterService
     origin + path
   end
 
+-----------------------original service method---------------
   def user_name
     client.user.name
   end
+-------------------------------------------------------------
+
+----------------------new_service method---------
+  def user_info
+    client.user
+  end
+-------------------------------------------
+
+---------PORO---------------
+
+  class UserInfo
+
+    def initialize(user)
+      @user = OpenStruct.new(user)
+    end
+
+    #OpenStrucut before user???
+
+    def user_name
+      self.user.name
+    end
+
+  end
+
+---------end_PORO---------------------
 
   def user_handle
     client.user.screen_name
-  end
-
-  def favorited?
-    favorited
   end
 
 end
